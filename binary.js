@@ -6,7 +6,7 @@ class Node {
   }
 }
 
-class BinarySearchTree {
+class BinaryTree {
   constructor() {
     this.root = null;
   }
@@ -127,16 +127,22 @@ class BinarySearchTree {
   }
 }
 
-const bst = new BinarySearchTree();
-[15, 10, 20, 8, 12, 17, 25, 6, 11].forEach(num => bst.insert(num));
+const tree = new BinaryTree();
+[15, 10, 20, 8, 12, 17, 25, 6, 11].forEach(num => tree.insert(num));
+
+const a = 15
 
 console.log('Вигляд дерева:');
-bst.printTree();
-console.log('Максимальне', bst.findMax())
-console.log('Мінімальне', bst.findMin())
-console.log('Розмір', bst.size())
-console.log('містить', bst.contains(15))
-bst.remove(15);
-console.log('\nПісля видалення числа:');
-console.log(`містить число?`, bst.contains(15))
-bst.printTree();
+tree.printAll();
+tree.printTree();
+console.log('Максимальне', tree.findMax())
+console.log('Мінімальне', tree.findMin())
+console.log('Розмір', tree.size())
+console.log(`містить число ${a}?`, tree.contains(a))
+tree.remove(15);
+tree.insert(188);
+
+console.log(`\nПісля видалення ${a}:`);
+tree.printAll();
+console.log(`містить число ${a}?`, tree.contains(a))
+tree.printTree();
